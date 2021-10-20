@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Update <%=result.artwork_name %>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">The Gallery</a> </h1>
+    </header>
+    <figure>
+        <figcaption>
+            <form action="/update" method="POST">
+                <input type="hidden" value="<%=result._id %>" name="_id">
+                <label for="">Artwork name:</label>
+                <input type="text" name="artwork_name" id="" required placeholder="Artwork name"
+                    value="<%=result.artwork_name %>">
+                <label for="">Artwork Url</label>
+                <input type="text" name="artwork_url" id="" required placeholder="Artwork Url"
+                    value="<%=result.artwork_url %>">
+                <label for="">Artwork Rating</label>
+                <input type="range" name="artwork_rating" id="" min='0' max="10" value=<%=result.artwork_rating %>>
+                <div>
+                    <input type="submit" id="update" value="Update">
+                </div>
+            </form>
+        </figcaption>
+        <img src=<%=result.artwork_url %> alt="">
+    </figure>
+</body>
+
+</html>

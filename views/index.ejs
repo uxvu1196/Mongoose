@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">The Gallery</a> </h1>
+    </header>
+    <form action="/new" method="POST">
+        <label for="">Artwork name:</label>
+        <input type="text" name="artwork_name" id="" required placeholder="Artwork name">
+        <label for="">Artwork Url</label>
+        <input type="text" name="artwork_url" id="" required placeholder="Artwork Url">
+        <label for="">Artwork Rating</label>
+        <input type="range" name="artwork_rating" id="" min='0' max="10" value="5">
+        <div>
+            <input type="submit" value="Add New">
+        </div>
+    </form>
+    <main>
+        <% results.forEach(element=> { %>
+            <figure>
+                <img src=<%=element.artwork_url %> alt="">
+                <figcaption>
+                    <h4>
+                        <%= element.artwork_name %>
+                    </h4>
+                    <h4>
+                        <%= element.artwork_rating %>
+                    </h4>
+                    <a href=<%=`/details/${element._id} `%>>See More</a>
+                </figcaption>
+            </figure>
+            <% }) %>
+    </main>
+</body>
+
+</html>
